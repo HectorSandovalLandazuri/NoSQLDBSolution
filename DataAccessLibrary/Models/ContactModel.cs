@@ -11,7 +11,7 @@ namespace DataAccessLibrary.Models
     public class ContactModel
     {
         [BsonId]
-        [JsonProperty(PropertyName = "id")]
+        [JsonProperty(PropertyName = "id")] 
         public Guid Id { get; set; }= Guid.NewGuid();
         public string FirstName { get; set; }
         public string LastName { get; set; }

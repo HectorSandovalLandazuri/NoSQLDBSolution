@@ -69,6 +69,12 @@ static void GetAllContacts(MongoDBDataAccess db, string tableName)
     }
 }
 
+static void CreateContact(MongoDBDataAccess db,string tableName , ContactModel contact)
+{
+    db.UpsertRecord(tableName, contact.Id, contact);
+}
+
+
 static string GetConnectionString(string connectionStringName = "Default")
 {
     string output = "";
@@ -78,9 +84,4 @@ static string GetConnectionString(string connectionStringName = "Default")
     var config = builder.Build();
     output = config.GetConnectionString(connectionStringName);
     return output;
-}
-
-static void CreateContact(MongoDBDataAccess db,string tableName , ContactModel contact)
-{
-    db.UpsertRecord(tableName, contact.Id, contact);
 }
